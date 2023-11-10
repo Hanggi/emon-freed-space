@@ -11,7 +11,11 @@ interface NftProps extends ComponentProps<'div'> {}
 export default function Nft({ className, ...props }: NftProps) {
   return (
     <div
-      className={cn('container mb-24 flex items-center gap-10', className, {})}
+      className={cn(
+        'container mb-24 flex items-center gap-10 max-md:flex-col',
+        className,
+        {}
+      )}
       {...props}
     >
       <div className="max-w-xs">
@@ -23,8 +27,8 @@ export default function Nft({ className, ...props }: NftProps) {
         </Text>
         <Button variant="default/accent">VIEW MORE</Button>
       </div>
-      <div className="grid grow grid-cols-3 gap-4">
-        {Array.from(Array(3)).map((el) => (
+      <div className="grid grow grid-cols-3 gap-4 max-md:grid-cols-1">
+        {Array.from(Array(3).keys()).map((el) => (
           <NftCard key={el} />
         ))}
       </div>

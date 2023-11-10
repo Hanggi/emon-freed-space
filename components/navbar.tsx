@@ -66,29 +66,27 @@ export default function Navbar() {
 const NavContent = () => {
   const path = usePathname();
   return (
-    <>
-      <ul className="items-c enter ml-20 flex gap-8 max-lg:hidden ">
-        {siteConfig.nav.map((_) => (
-          <li
-            key={_.title}
-            className={cn('relative', {
-              'text-primary': isNavActive(_.href, path),
-            })}
-          >
-            <h3 className="px-3 uppercase">
-              <Link href={_.href}>{_.title}</Link>
-            </h3>
-            {isNavActive(_.href, path) && (
-              <Motion
-                as="span"
-                layoutId="nav-bg"
-                className="bg-primary/10 absolute inset-0 -z-10 rounded-md "
-              />
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="items-c enter ml-20 flex gap-8 max-lg:hidden ">
+      {siteConfig.nav.map((_) => (
+        <li
+          key={_.title}
+          className={cn('relative', {
+            'text-primary': isNavActive(_.href, path),
+          })}
+        >
+          <h3 className="px-3 uppercase">
+            <Link href={_.href}>{_.title}</Link>
+          </h3>
+          {isNavActive(_.href, path) && (
+            <Motion
+              as="span"
+              layoutId="nav-bg"
+              className="bg-primary/10 absolute inset-0 -z-10 rounded-md "
+            />
+          )}
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -100,7 +98,7 @@ const NavContentMob = ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
       initial="up"
       animate="visible"
       exit={'left'}
-      className="bg-card absolute inset-x-0 mx-2 flex flex-col items-start gap-4 rounded-xl p-5 shadow-xl lg:hidden"
+      className="bg-primary absolute inset-x-0 mx-2 flex flex-col items-start gap-4 rounded-xl p-5 shadow-xl lg:hidden"
     >
       {siteConfig.nav.map((_) => (
         <li onClick={() => setIsMenuOpen(false)} key={_.title}>

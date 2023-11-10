@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react';
 import Img from '@sohanemon/next-image';
 import { cn } from '@sohanemon/utils';
+import { ComponentProps } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
@@ -10,7 +10,7 @@ interface CtaProps extends ComponentProps<'div'> {}
 export default function Cta({ className, ...props }: CtaProps) {
   return (
     <div className={cn('relative z-10 bg-white', className)} {...props}>
-      <section className="pb2 container flex items-center gap-10 pb-20 pt-40 max-md:flex-wrap">
+      <section className=" container flex items-center gap-10 py-20 max-md:flex-wrap md:pt-40">
         <div className="max-w-lg">
           <Text intent={'title'} className="mb-5 text-[40px] text-black ">
             Resourcies For You Getting Started
@@ -27,7 +27,7 @@ export default function Cta({ className, ...props }: CtaProps) {
           <Img
             src="/public/assets/images/video.png"
             aspectRatio="716/394"
-            className="w-[clamp(600px,50vw,700px)]"
+            className="w-[clamp(300px,50vw,700px)]"
           />
           <div className="absolute inset-0 m-auto h-fit w-24">
             <div className="absolute inset-0 animate-ping rounded-full border border-white/50 delay-300 duration-500" />
@@ -36,7 +36,7 @@ export default function Cta({ className, ...props }: CtaProps) {
           </div>
         </div>
       </section>
-      <div className="absolute bottom-0 right-0 h-[88%]  w-1/2 rounded-tl-[150px] bg-[#6DA985]" />
+      <div className="absolute bottom-0 right-0 h-[88%]  w-1/2 rounded-tl-[150px] bg-[#6DA985] max-md:hidden" />
     </div>
   );
 }
